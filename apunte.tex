@@ -1,0 +1,238 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\newtheorem{teo}{Teorema}[subsection]
+\theoremstyle{definition}
+\newtheorem{defn}{Definici\'on}[subsection]
+\newtheorem{prop}{Proposici\'on}[subsection]
+\newtheorem{lema}{Lema}[subsection]
+\newtheorem{obs}{Observaci\'on}[subsection]
+\newtheorem{cor}{Corolario}[subsection]
+\begin{document}
+\begin{center}
+{\bf \Large \'Algebra II}
+\end{center}
+\section{Grupos}
+\subsection{Definiciones b\'asicas}
+\begin{defn}
+Un {\bf semigrupo} es un conjunto no vac\'io $G$ provisto de una operaci\'on asociativa
+
+\begin{eqnarray*}
+\cdot : G \times G &\rightarrow& G\\
+(g,h) &\rightarrow& gh
+\end{eqnarray*}
+\end{defn}
+\begin{defn}
+Un {\bf monoide} es un semigrupo $G$ que tiene un elemento neutro.
+
+$$\exists e \in G \, / \,ae = ea = a \quad \forall a \in G$$
+\end{defn}
+
+\begin{defn}
+Un {\bf grupo} es un monoide donde todo elemento tiene un inverso.
+
+$$\forall a \in G: \,\, \exists a' \in G \, / \, aa' = a'a = e$$
+\end{defn}
+
+En muchas ocasiones diremos $G$ para referirnos al grupo $(G,\cdot)$ cuando la operaci\'on est\'a impl\'icita por el contexto.
+
+\begin{defn}
+Un grupo se dice abeliano si todo par de elementos conmuta entre s\'i.
+
+$$\forall a,b \in G \,\, ab = ba$$
+
+\noindent Cuando el grupo es abeliano la operaci\'on se suele denotar con $+$ en lugar de $\cdot$.
+\end{defn}
+
+\begin{obs}
+Si $G$ es un grupo y $e$ es el neutro de $G$, $e$ es su propio inverso ya que $ee = e$.
+\end{obs}
+
+\begin{obs}
+Dado un grupo $G$ existe un \'unico neutro en $G$. Si $e$ y $e'$ son neutros de $G$
+
+$$e = ee' = e'$$
+
+\noindent El neutro se suele notar como 1, y cuando el grupo es abeliano se suele usar 0.
+\end{obs}
+
+\begin{prop}
+Si $G$ es un monoide y $ab = e = ca$ entonces $b = c$
+\end{prop}
+
+\begin{proof}
+$$c = ce = c(ab) = (ca)b = eb = b$$
+\end{proof}
+
+\begin{cor}
+Si $G$ es un grupo:
+
+$$\forall a \in G \,\, \exists ! a' \,/\, a'a = aa' = e$$
+
+\noindent ya que si $a'$ y $a''$ son inversos de $a$
+
+$$a' = ae = a'(aa'') = (a'a)a'' = ea = a''$$
+\end{cor}
+
+Al inverso de $a$ lo llamamos $a^{-1}$ (o $-a$ si $G$ es abeliano).
+
+\begin{obs}
+Si $G$ es un grupo y $ab = 1$ entonces $b = a^{-1}$ ya que al ser $a$ el inverso a izquierda de $b$, es tambi\'en inverso a derecha.
+\end{obs}
+
+\begin{obs}
+Si $G$ es un grupo y $ab = ac$ entonces $b = c$
+
+$$b = (a^{-1}a)b = a^{-1}(ab) = a^{-1}(ac) = (a^{-1}a)c = c$$
+\end{obs}
+
+\begin{defn}
+Sea $G$ un grupo, el orden de $G$ es su cardinal y se denota $|G|$
+\end{defn}
+
+Si $|G|$ es finito decimos que $G$ es un grupo finito, sino $G$ se dice grupo infinito.
+
+\bigskip
+
+\noindent {\bf Ejemplos:}
+
+\begin{enumerate}
+\item $(\mathbb{N},+)$ es un semigrupo.
+\item $(\mathbb{N}_0,+)$ es un monoide.
+\item $(\mathbb{Z},+)$ es un grupo.
+\item $(\mathbb{Z},\cdot)$ es un monoide.
+\item $(\mathbb{R},+)$ es un grupo.
+\item $(\mathbb{R} - \{0\},\cdot) = (\mathbb{R}^{*},\cdot)$ es un grupo.
+\item $(\mathbb{C} - \{0\},\cdot) = (\mathbb{C}^{*},\cdot)$ es un grupo.
+\item Si $k$ es un cuerpo, $(k[x],+)$ es un grupo.
+\item Si $k$ es un cuerpo, $(k[x],\cdot)$ es un monoide.
+\item $(\mathbb{Z}_N, +)$ es un grupo.
+\item $(\mathbb{Z}_N,\cdot)$ es un monoide.
+\item $(G_N,\cdot)$ es un grupo. (las raices $N$-\'esimas de la unidad).
+\item Sea $S^1 = \{z \in \mathbb{C} \, / \, |z| = 1\}$. $(S^1,\cdot)$ es un grupo.
+\item Sea $(M,\cdot)$ un monoide, las unidades de $M$ son $U(M) = \{a \in M \, / \, \exists a' \in M, aa' = a'a = 1\}$. $(U(M),\cdot)$ es un grupo.
+\item Sea $k$ un cuerpo y $V$ un $k$-espacio vectorial. $(\textrm{End}(V),\circ)$ es un monoide.
+\item Sea $k$ un cuerpo y $V$ un $k$-espacio vectorial. $(\textrm{Aut}(V),\circ)$ es un grupo.
+\item Sea $X$ un conjunto no vac\'io. $S(X)$ es el conjunto de las funciones biyectivas de $X$ en $X$
+
+$$S(X) = \{\phi : X \rightarrow X \, / \, \phi \textrm{ es biyectiva}\}$$
+
+$(S(X),\circ)$ es un grupo con $Id_X$ como neutro.
+=
+Si $X_n = \{1,2,\dots,n\}$ entonces $S(X_n) = S_n$ es el grupo de permutaciones de $n$ elementos o $n$-\'esimo grupo sim\'etrico.
+
+$|S_n| = n!$
+
+\item Sea $n \in \mathbb{N} (n \geq 2)$. Si $P_n$ es un pol\'igono regular de $n$ lados y $\alpha = \frac{2\pi}{n}$, definimos $D_n$ como el conjunto de movimientos r\'igidos (que conservan distancia) de $\mathbb{R}^2$ que mandan $P_n$ en si mismo (rotaciones y simetr\'ias).
+
+Si $r$ es una rotaci\'on con \'angulo $\alpha$ y $s$ es una simetr\'ia, $r^n = 1$, $s^2 = 1$, $r^{-1} = r^{n-1} = srs$ y $sr = r^{-1}s$.
+
+$(D_n,\circ)$ es un grupo llamado grupo diedral y 
+
+$$|D_n| = \#\{1,r,r^2,\dots,r^{n-1},s,rs,\dots,r^{n-1}s\} = 2n.$$
+\end{enumerate}
+
+\begin{defn}
+Sea $G$ un grupo, $a \in G$, decimos que el orden de $a$ es finito si existe $n \in \mathbb{N}$ tal que $a^n = 1$. En ese caso el orden de $a$ es el m\'inimo $n$ positivo tal que $a^n = 1$ y lo denotamos como $o(a), ord(a)$ o $|a|$.
+
+Si $\forall n \in \mathbb{N}$ se tiene que $a^n \neq 1$ entonces decimos que $a$ tiene orden infinito.
+\end{defn}
+
+\begin{prop}
+\label{p1}
+Supongamos $|a| = n$, entonces $a^0, a^1, a^2, \dots, a^{n-1}$ son todos distintos.
+\end{prop}
+
+\begin{proof}
+Supongamos que existen $0 \leq j < k \leq n-1$ tales que $a^j = a^k$, entonces $a^k (a^j)^{-1} = a^k a^{-j} = a^{k-j} = 1$ pero $0 < k-j < n-1$.
+\end{proof}
+
+\begin{prop}
+\label{p2}
+Sea $n = |a|$. Si $m = nq+r$ entonces $a^m = a^r$.
+\end{prop}
+
+\begin{proof}
+$$a^m = a^{nq+r} = a^{nq} a^r = (a^n)^q a^r = 1^q a^r = a^r$$
+\end{proof}
+
+\begin{prop}
+Si $|a|$ es finito entonces
+
+\begin{enumerate}
+\item $ord(a) = \#\{a^m | m \in \mathbb{Z}\} = \#\{a^m | m \in \mathbb{N}\}$
+\item $a^n = 1 \Leftrightarrow ord(a) | n$
+\item Si $a^n = 1$ entonces $a^{-1} = a^{n-1}$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof} $ $
+
+\begin{enumerate}
+\item Se deduce de las proposiciones \ref{p1} y \ref{p2}.
+\item Se deduce de la proposici\'on \ref{p2}.
+\item $a^{n-1}a = a^n = 1$ luego $a^{n-1}$ es el inverso de $a$.
+\end{enumerate}
+\end{proof}
+
+\begin{defn}
+Un grupo $G$ se dice c\'iclico si 
+
+$$\exists a \in G \, / \, \forall g \in G, g\textrm{ es una potencia de }a$$
+\end{defn}
+
+$(\mathbb{Z}_N,+)$ y $(\mathbb{Z},+)$ son todos los grupos c\'iclicos que hay (salvo isomorfismos).
+
+\subsection{Subgrupos}
+
+\begin{defn}
+$(H,\cdot)$ se dice subgrupo de $(G,\cdot)$ si
+
+\begin{enumerate}
+\item $H$ es un subconjunto no vac\'io de $G$
+\item $\forall h, h' \in H, hh' \in H$
+\item $\forall h \in H, h^{-1} \in H$
+\end{enumerate}
+
+Notamos $H \leq G$ para decir que $H$ es un subgrupo de $G$.
+\end{defn}
+
+\begin{obs}
+Si $H$ es un subgrupo de $G$ entonces $H$ es un grupo. Por el item 1 de la definici\'on anterior, existe $h \in H$, por el item 3 $h^{-1} \in H$ y por el item 2 $hh^{-1} = e \in H$, y al estar el neutro, ser cerrado por producto y tener todos los elementos inverso, podemos concluir que $H$ es un grupo.
+\end{obs}
+
+\begin{prop}
+Si $H \leq G$ es finito, entonces $2) \Rightarrow 3)$ en la definici\'on de subgrupo.
+\end{prop}
+
+\begin{proof}
+Si $h = 1$ entonces $h^{-1} = h$. Sino, definimos 
+
+$$h^n = \{h,h^2,h^3, \dots\} = \{h^n, n \in \mathbb{N}\}$$
+
+Como $H$ es finito y $h^n \subseteq H$ luego $h^n$ es finito, luego $\exists 1 \leq j < k$ tales que $h^j = h^k \Rightarrow h^{k-j} = 1 \rightarrow h^{k-j-1} = h^{-1} \in H$. Como $h \neq 1$ luego $k-j > 1$ y por lo tanto $k-j-1 \geq 1$.
+\end{proof}
+
+\begin{obs}
+Si $H_{i_{i \in I}} \subseteq G$ son todos subgrupos de $G$, entonces $\displaystyle \bigcap_{i \in I} H \subseteq G$ es un subgrupo de $G$.
+\end{obs}
+
+\begin{defn}
+Si $x \in G$
+
+$$<x> = \displaystyle \bigcap_{H \leq G, x \in H} H$$
+
+es un subgrupo de $G$ y se lo llama el grupo generado por $x$. Si $X$ es un subconjunto de $G$ entonces 
+
+$$<X> = \displaystyle \bigcap_{H \leq G, X \subseteq H} H$$
+
+es el subgrupo generado por $X$.
+\end{defn}
+
+\begin{defn}
+Si $G$ es un grupo, $Z(G) = \{a \in G \, / \, ab = ba \,\, \forall b \in G\}$ es un subgrupo de $G$ llamado el centro de $G$.
+\end{defn}
+
+\end{document}
