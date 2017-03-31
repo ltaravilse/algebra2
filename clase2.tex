@@ -1,0 +1,354 @@
+\begin{defn}
+Si $G$ es un grupo decimos que $G$ tiene exponente finito si 
+
+$$\exists n \in \mathbb{N} \,/\, \forall a \in G \,\, \, a^n = 1$$
+
+En ese caso el exponente de $G$ ($Exp(G)$) es el m\'inimo $n$ que cumple con esa condici\'on.
+\end{defn}
+
+\begin{prop}
+Si $G$ es finito, entonces $Exp(G) = \displaystyle \textrm{mcm } ord(a), a \in G$.
+\end{prop}
+
+\begin{proof}
+Como $G$ es finito entonces el orden de cada elemento es finito, luego $a^n = 1$ para todo $n$ m\'ultiplo de $ord(a)$, luego el exponente tiene que ser un m\'ultiplo com\'un de todos los ordenes, y el m\'inimo de todoses el m\'inimo com\'un m\'ultiplo de ellos.
+\end{proof}
+
+\subsection{Conjugados y subgrupos normales}
+
+\begin{defn}
+Sea $G$ un grupo y $H \leq G$.
+
+$$aHa^{-1} = \{aha^{-1} | h \in H\}$$
+\end{defn}
+
+\begin{obs}
+$aHa^{-1} \leq G$.
+\end{obs}
+
+\begin{proof}
+$a1a^{-1} = 1$ y si $aha^{-1}, ah'a^{-1} \in G$ entonces $(aha^{-1})(ah'a^{-1}) = ahh'a^{-1} \in G$.
+\end{proof}
+
+Decimos que $H$ y $H'$ son subgrupos de $G$ conjugados si existe $a \in G$ tal que $aHa^{-1} = H'$.
+
+\begin{obs}
+Si $G$ es abeliano, entonces $H$ es el \'unico conjugado de $H$ ya que $aha^{-1} = aa^{-1}h = h$ para todo $h \in H$.   
+\end{obs}
+
+\begin{defn}
+Un subgrupo $H \leq G$ se dice normal o invariante si $\forall a \in G$ se cumple que $aHa^{-1} = H$ y se nota $H \triangleleft G$.
+\end{defn}
+
+\begin{prop}
+$H \triangleleft G \Leftrightarrow \forall a \in G aHa^{-1} \subseteq H$.
+\end{prop}
+
+\begin{proof} $ $
+
+$\Rightarrow )$ Como $aHa^{-1} = H$ luego $aHa^{-1} \subseteq H$
+
+$\Leftarrow )$ Sea $g \in G$, veamos que $H \subseteq gHg^{-1}$
+
+\begin{eqnarray*}
+g^{-1}Hg &\subseteq& H\\
+g(g^{-1}Hg)g^{-1} &\subseteq& gHg^{-1}\\
+H &\subseteq& gHg^{-1}
+\end{eqnarray*}
+\end{proof}
+
+\begin{obs}
+Si $\forall i \in I: H_i \triangleleft G$ entonces $\displaystyle \big( \bigcap_{i \in I} H_i \big) \triangleleft G$
+\end{obs}
+
+\begin{obs}
+Si $H \leq G$ entonces $\displaystyle \bigcap_{a \in G} \big(aHa^{-1}\big) \triangleleft G$
+\end{obs}
+
+\begin{obs}
+$Z(G) \triangleleft G$
+\end{obs}
+
+\begin{defn}
+Sea $G$ un grupo, el conmutador de $a$ y $b$ se define como
+
+$$[a,b] = aba^{-1}b^{-1}$$
+\end{defn}
+
+\begin{obs}
+$$[a,b] = 1 \Leftrightarrow ab = ba$$
+\end{obs}
+
+\begin{defn}
+Dado un grupo $G$, el conmutador de $G$ es el subgrupo de $G$ generado por los conmutadores $[a,b]$ con $a,b \in G$ y se lo nota $[G,G]$.
+\end{defn}
+
+\begin{obs}
+$[a,b]^{-1} = [b,a]$ luego $[G,G]$ est\'a compuesto por productos finitos de conmutadores.
+\end{obs}
+
+\begin{prop}
+$[G,G] \triangleleft G$.
+\end{prop}
+
+\begin{proof}
+Veamos que $g[G,G]g^{-1} \in [G,G]$.
+
+$g[a,b]g^{-1} = gaba^{-1}b^{-1}g^{-1} = ga(g^{-1}g)b(g^{-1}g)a^{-1}(g^{-1}g)b^{-1}g^{-1} = [gag^{-1},gbg^{-1}] \in [G,G]$.
+\end{proof}
+
+\subsection{Morfismos}
+
+\begin{defn}
+Sean $G$ y $H$ grupos. Un morfismo es una funci\'on $\varphi: G \rightarrow H$ que respeta el producto, es decir:
+
+$$\varphi(ab) = \varphi(a) \varphi(b) \quad \forall a,b \in G$$
+\end{defn}
+
+\begin{obs}
+$\varphi(1_G) = 1_H$
+\end{obs}
+
+\begin{proof}
+$\varphi(1_G) = \varphi(1_G1_G) = \varphi(1_G) \varphi(1_G)$, y multiplicando de ambos lados a derecha por $\varphi(1_G)^{-1}$ obtenemos $1_H = \varphi(1_G)$
+\end{proof}
+
+\begin{obs}
+$\varphi(a^{-1}) = \varphi(a)^{-1}$
+\end{obs}
+
+\begin{proof}
+$1_H = \varphi(1_G) = \varphi(aa^{-1}) = \varphi(a) \varphi(a^{-1})$
+\end{proof}
+
+\begin{defn}
+$\varphi: G \rightarrow H$ es
+\begin{itemize}
+\item monomorfismo si $\varphi$ es inyectiva
+\item epimorfismo si $\varphi$ es sobreyectiva
+\item isomorfismo si $\varphi$ es biyectiva
+\end{itemize}
+\end{defn}
+
+\begin{defn}
+Dado $\varphi: G \rightarrow H$ definimos 
+
+\begin{eqnarray*}
+Ker(\varphi) &=& \{a \in G \, |\, \varphi(a) = 1_H\}\\
+Im(\varphi) &=& \{\varphi(a) \,| \, a \in G\}
+\end{eqnarray*}
+\end{defn}
+
+\begin{obs}
+Se cumple que
+\begin{enumerate}
+\item $Ker(\varphi) \leq G$
+\item $Ker(\varphi) \triangleleft G$
+\item $Im(\varphi) \leq H$
+\end{enumerate}
+\end{obs}
+
+\begin{proof}
+$ $
+
+\begin{enumerate}
+\item Sabemos que $\varphi(1_G) = 1_H$ s\'olo falta probar que si $a,b \in Ker(\varphi)$ entonces $ab \in Ker(\varphi)$ pero esto vale ya que $\varphi(ab) = \varphi(a) \varphi(b) = 1_H1_H = 1_H$.
+\item Si $b \in Ker(\varphi)$ entonces $aba^{-1} \in Ker(\varphi)$ ya que $\varphi(aba^{-1}) = \varphi(a) \varphi(b) \varphi(a^{-1}) = \varphi(a) 1_H \varphi(a^{-1}) = \varphi(a) \varphi(a^{-1}) = \varphi(aa^{-1}) = \varphi(1_G) = 1_H$
+\item $1_H \in Im(\varphi)$ ya que $\varphi(1_G) = 1_H$. Adem\'as, si $a, b \in Im(\varphi)$ luego $ab$ tambi\'en lo est\'a ya que si $a = \varphi(g)$ y $b = \varphi(h)$ luego $ab = \varphi(gh)$.
+\end{enumerate}
+\end{proof}
+
+\begin{obs}
+$\varphi$ es monomorfismo si y s\'olo si $Ker(\varphi) = 1$.
+\end{obs}
+
+\begin{proof}
+$ $
+
+$\Rightarrow )$ Si $\varphi$ es monomorfismo entonces para todo $a, b$ se tiene que $\varphi(a) \neq \varphi(b)$, luego si $a \neq 1$ entonces $\varphi(a) \neq 1$, luego $Ker(\varphi) = 1$.
+
+$\Leftarrow )$ Si $Ker(\varphi) = 1$ y $a \neq b$ entonces $\varphi(a) \neq \varphi(b)$ ya que $\varphi(a) \varphi(b^{-1}) = \varphi(ab^{-1}) \neq 1$.
+\end{proof}
+
+\begin{defn}
+El morfismo $\varphi: G \rightarrow H$ definido por $\varphi(a) = 1 \, \, \forall a \in G$ se llama morfismo trivial y se denota $\varphi = 1$.
+\end{defn}
+
+\begin{obs}
+Si $f: \mathbb{Z}_n \rightarrow \mathbb{Z}$ es un morfismo, entonces es el morfismo trivial.
+\end{obs}
+
+\begin{proof}
+Para todo $a \in \mathbb{Z}_n$ se cumple
+
+$$f(0) = f(na) = nf(a) = 0 \Rightarrow f(a) = 0$$
+\end{proof}
+
+\begin{defn}
+$G$ y $H$ se dicen isomorfos si existe un isomorfismo $\varphi: G \rightarrow H$ y se denota $G \equiv H$. Si $G \equiv H$ entonces $\varphi^{-1}: H \rightarrow G$ es tambi\'en un isomorfismo.
+\end{defn}
+
+\begin{prop}
+Si $G$ es un grupo c\'iclico entonces $G \equiv \mathbb{Z}_n$ o $G \equiv \mathbb{Z}$.
+\end{prop}
+
+\begin{proof}
+$ $
+
+Si $G$ es c\'iclico y finito, de orden $n$, entonces tomemos $g$ generador de $G$ y existe un isomorfismo $f: G \rightarrow \mathbb{Z_n}$ tal que $f(g) = 1$, $f(g^2) = 2$ y en general $f(g^t) = t$.
+
+Si en cambio $G$ es infinito, entonces tomeoms $g$ generador de $G$ y existe un isomorfismo $f: G \rightarrow \mathbb{Z}$ tal que $f(g^t) = t$ para todo $t \in \mathbb{Z}$.
+\end{proof}
+
+\subsection{Cocientes}
+
+\begin{defn}
+Sea $G$ un grupo, $H \leq G$ y $a \in G$. $aH = \{ah \, | \, h \in H\}$ es la coclase a izquierda de $a$, y $Ha = \{ha \, | \, h \in H\}$ es la coclase a derecha de $a$.
+\end{defn}
+
+A partir de ahora todo lo que se diga para coclases a izquierda vale tambi\'en para coclases a derecha.
+
+\begin{prop}
+$aH = H \Leftrightarrow a \in H$.
+\end{prop}
+
+\begin{proof}
+$ $
+
+$\Rightarrow )$ $a = a1 \in aH = H$
+
+$\Leftarrow )$ $H \subseteq aH (h = aa^{-1}h \in aH$ para todo $h \in H$) y $aH \subseteq H (ah \in H$ si $a \in H$ y $h \in H$).
+\end{proof}
+
+\begin{obs}
+Sea $G$ un grupo, $a,b \in G$ y $H \leq G$.
+
+\begin{enumerate}
+\item $b \in aH \Rightarrow aH = bH$.
+\item $aH \cap bH \neq \emptyset \Rightarrow aH = bH$
+\item $aH = bH \Leftrightarrow a^{-1}b \in H \rightarrow b^{-1}a \in H$.
+\item $\#aH = \#bH$
+\end{enumerate}
+\end{obs}
+
+\begin{proof}
+$ $
+
+\begin{enumerate}
+\item Sea $b = ah$. Veamos que $aH \subseteq bH$.
+
+$ah' \in aH \Rightarrow ah(h^{-1}h') = b(h^{-1}h') \in bH$
+
+Veamos ahora que $bH \subseteq aH$.
+
+$bh' = ahh' \in aH$
+\item Su $c \in aH$ y $c \in bH$ luego $aH = cH = bH$.
+\item $aH = bH \Leftrightarrow  a^{-1}(aH) = a^{-1}(bH) \Leftrightarrow H = (a^{-1}b)H$.
+\item $\varphi: ah \rightarrow bh$ es una biyecci\'on entre $aH$ y $bH$. En particular $\#aH = \#1H = |H|$
+\end{enumerate}
+\end{proof}
+
+\begin{obs}
+Si $G$ es un grupo y $H \leq G$, entonces $G$ se puede escribir como uni\'on disjunta de coclases.
+
+$$\displaystyle \bigcup_{a \in G}^{d} aH$$
+\end{obs}
+
+\begin{obs}
+Se tiene la relaci\'on de equivalencia $aRb \Leftrightarrow aH = bH \Leftrightarrow a^{-1}b \in H$.
+\end{obs}
+
+\begin{defn}
+El \'indice de $H$ en $G$ es la cantidad de coclases de $H$ en $G$ y se nota $(G : H)$.
+
+$$(G : H) = \#\{aH \, | \, a \in G\}$$
+\end{defn}
+
+\begin{obs}
+$(G : G) = 1$ y $(G : 1) = |G|$
+\end{obs}
+
+\begin{teo}{\bf Lagrange}
+Si $G$ es un grupo finito y $H \leq G$ entonces
+
+$$|G| = |H| (G : H)$$
+\end{teo}
+
+\begin{proof}
+$G$ se puede particionar en $(G:H)$ coclases, cada una de $|H|$ elementos.
+\end{proof}
+
+\begin{cor}
+Si $G$ es un grupo, $a \in G$ y $H \leq G$, $|H|$ divide a $|G|$ y $ord(a)$ tambi\'en divide a $|G|$
+\end{cor}
+
+\begin{obs}
+Si $p$ es un primo y $|G| = p$ entonces $G \equiv \mathbb{Z}_p$
+\end{obs}
+
+\begin{proof}
+Sea $a \neq 1$, entonces $\{1,a\} \subseteq <a>$ luego $|<a>| > 1$ pero entonces $|<a>| = p$, es decir, que el grupo es c\'iclico.
+\end{proof}
+
+\begin{obs}
+Existe una biyecci\'on de coclases a izquierda en coclases a derecha:
+
+$$aH \leftrightarrow Ha^{-1}$$
+$$aH = bH \Leftrightarrow a^{-1}b \in H \quad\quad\quad Ha^{-1} = Hb^{-1} \Leftrightarrow b^{-1}a \in H$$
+$$a^{-1}b \in H \Leftrightarrow b^{-1}a \in H$$
+\end{obs}
+
+\begin{cor}
+$(G:H)$ es la cantidad de coclases a derecha.
+\end{cor}
+
+\begin{prop}
+Si $K \leq H \leq G$ entonces $K \leq G$ y si $G$ es finito
+
+$$(G : K) = (G : H) (H : K)$$
+\end{prop}
+
+\begin{proof}
+$(G : K) = \frac{|G|}{|K|} = \frac{|G|}{|H|} \frac{|H|}{|K|} = (G : H) (H : K)$
+\end{proof}
+
+\begin{obs}
+$H \triangleleft G \Leftrightarrow aH = Ha \,\, \forall a \in G$
+\end{obs}
+
+\begin{prop}
+Si $(G:H) = 2$ entonces $H \triangleleft G$
+\end{prop}
+
+\begin{proof}
+Sea $a \in G$, si $a \in H$ entonces $aH = H = Ha$, si $a \notin H$ entonces $G = H \displaystyle \bigcup^d aH$ y $aH = G \setminus H = Ha$.
+\end{proof}
+
+Por ejemplo si $G = D_n$ y $H = <r>$ luego $H \triangleleft G$ dado que $|G| = 2n$ y $|H| = n$.
+
+\begin{defn}
+Sea $G$ un grupo y $H \triangleleft G$, definimos el cociente $\faktor{G}{H}$ de la siguiente manera
+
+$$\faktor{G}{H} = \{aH \,|\, a \in G \}$$
+
+En dicho conjunto definimos el producto
+
+$$\cdot : \faktor{G}{H} \times \faktor{G}{H} \rightarrow \faktor{G}{H}$$
+
+como $(aH)(bH) = (abH)$
+
+Veamos que este producto est\'a bien definido. Supongamos $aH = a'H$ y $bH = b'H$. Veamos que $abH = a'b'H$
+
+$$abH = a(bH) = a(Hb) = (aH)b = (a'H)b = a'(Hb) = a'(bH) = a'(b'H) = a'b'H$$
+
+Y esto vale porque al ser $H \triangleleft G$ entonces $aH = Ha$ para todo $a \in G$.
+
+\medskip
+Este conjunto, dotado de esta operaci\'on, es un grupo, ya que es asociativo ($(aH)\big((bH)(cH)\big) = aH(bcH) = abcH = (abH)cH = \big((aH)(bH)\big)(cH)$), tiene elemento neutro ($1H = H$) y cada elemento tiene inverso ($(aH)(a^{-1}H) = H$).
+\end{defn}
+
+\begin{obs}
+Existe un morfismo de grupos $q : G \rightarrow \faktor{G}{H}$ que manda $a$ en $aH$ y se denomina morfismo cociente. Dado que la coclase $aH$ coincide con la coclase $Ha$ se denomina la clase de $a$ y se denota $\overline{a}$.
+
+Para este morfismo se cumple que $Ker(q) = H$ y $\overline{a} = \overline{b}$ si y s\'olo si $a^{-1}b \in H$.
+\end{obs}
